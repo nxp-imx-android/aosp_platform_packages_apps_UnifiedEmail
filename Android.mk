@@ -55,6 +55,8 @@ LOCAL_PROGUARD_FLAG_FILES += proguard-test.flags
 
 LOCAL_JACK_COVERAGE_INCLUDE_FILTER := com.android.mail.*,com.android.emailcommon.*,com.google.android.mail.*
 
+LOCAL_AAPT_FLAGS += --legacy
+
 include $(BUILD_PACKAGE)
 
 ##################################################
