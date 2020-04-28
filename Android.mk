@@ -32,7 +32,8 @@ LOCAL_STATIC_ANDROID_LIBRARIES := \
     androidx.appcompat_appcompat \
     androidx.gridlayout_gridlayout \
     androidx.legacy_legacy-support-v13 \
-    android-opt-bitmap
+    android-opt-bitmap \
+    android-opt-datetimepicker
 
 LOCAL_STATIC_JAVA_LIBRARIES := \
     androidx.annotation_annotation \
@@ -50,11 +51,11 @@ LOCAL_USE_AAPT2 := true
 LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res
 
 LOCAL_PROGUARD_FLAG_FILES := proguard.flags
-LOCAL_PROGUARD_FLAG_FILES += proguard-test.flags
+ifeq (eng,$(TARGET_BUILD_VARIANT))
+  LOCAL_PROGUARD_FLAG_FILES += proguard-test.flags
+endif
 
 LOCAL_JACK_COVERAGE_INCLUDE_FILTER := com.android.mail.*,com.android.emailcommon.*,com.google.android.mail.*
-
-LOCAL_AAPT_FLAGS += --legacy
 
 include $(BUILD_PACKAGE)
 
